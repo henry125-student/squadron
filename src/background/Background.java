@@ -117,7 +117,7 @@ public class Background {
 	
 	public void update() {
 
-		spawnZone = 15000 * foreground.getScaleX();
+		spawnZone = 1500 / foreground.getScaleX();
 		
 		display.setLayoutX(world.getScene().getWidth()/2);
 		display.setLayoutY(world.getScene().getHeight()/2);
