@@ -183,11 +183,11 @@ public class World implements Runnable{
 	//boolean first = true;
 	public void spawnPlayer() {
 		if (focus == null) {
-			focus = new Squad(this, 0, 0, 0);
+			focus = new MainSquad(this, 0, 0, 0);
 		} else {
 			double direction = Math.random() * Math.PI * 2;//TODO
 			
-			focus = new Squad(this, focus.getX() + 5000 * Math.cos(direction),
+			focus = new MainSquad(this, focus.getX() + 5000 * Math.cos(direction),
 					focus.getY() + 5000 * Math.sin(direction), 0);
 		}
 		new StorageShip((Squad)focus, focus.getX(), focus.getY());
@@ -287,13 +287,13 @@ public class World implements Runnable{
 				double spawnX = blockX-blockSize*(Math.random()-0.5),
 						spawnY = blockY-blockSize*(Math.random()-0.5);
 				
-				double value = 250;//500;
+				double value = 1500;//250;
 				if (focus instanceof Squad) {
 					value = Math.max(((Squad)focus).getValue()/* * Math.random()*0.75*/, value);
 					value = Math.min(value, 50000);
 				}
 				double rng = Math.random();
-				if (rng < 0.01/*0.005*/) {
+				if (rng < 0.01/*0.005*/ && MainSquad.squadCount < MainSquad.squadCap) {
 					//Squad
 					new AutoGenSquad(this, spawnX, spawnY, value);
 				} else if (rng < 0.02/*0.025*/ && value >= 3600) {

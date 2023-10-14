@@ -6,7 +6,7 @@ import entity.*;
 import game.World;
 import ship.elite.Elite;
 
-public class AutoGenSquad extends Squad {
+public class AutoGenSquad extends MainSquad {
 
 	private double thinkingfrequency;
 	private double bravery, raidChance;
