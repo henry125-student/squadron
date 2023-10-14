@@ -141,7 +141,7 @@ public class Elite extends Ship {
 				.map((e)->(Elite) e)
 				.anyMatch((e)-> !e.isActive && e.getHp() > this.getHp()
 						)) {
-			setHp(Math.min(getHp() + getMaxHp()/250 / getSquad().getCostMultiplier(),
+			setHp(Math.min(getHp() + getMaxHp()/125 / getSquad().getCostMultiplier(),
 					getMaxHp()));
 		}
 		

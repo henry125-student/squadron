@@ -177,7 +177,7 @@ public class LaserShip extends Elite {
 		return totalValue >= totalDamage;
 	}
 	
-	private static final double chargeDuration = 150;
+	private static final double chargeDuration = 75;
 	private static final double totalDamage = 1500;
 	private Entity lockOn;
 	
