@@ -372,37 +372,49 @@ public class Squad extends Entity{
 		
 		switch (classId) {
 		case 0:
-			if (removeMaterial(RamShip.getCost(this))) {
+			if (material >= RamShip.getCost(this)/2 && energy >= RamShip.getCost(this)/2) {
+				removeMaterial(RamShip.getCost(this)/2);
+				removeEnergy(RamShip.getCost(this)/2);
 				new RamShip(this, getX(), getY());
 				return true;
 			}
 			break;
 		case 1:
-			if (removeMaterial(CannonShip.getCost(this))) {
+			if (material >= CannonShip.getCost(this)/2 && energy >= CannonShip.getCost(this)/2) {
+				removeMaterial(CannonShip.getCost(this)/2);
+				removeEnergy(CannonShip.getCost(this)/2);
 				new CannonShip(this, getX(), getY());
 				return true;
 			}
 			break;
 		case 2:
-			if (removeMaterial(MissleShip.getCost(this))) {
+			if (material >= MissleShip.getCost(this)/2 && energy >= MissleShip.getCost(this)/2) {
+				removeMaterial(MissleShip.getCost(this)/2);
+				removeEnergy(MissleShip.getCost(this)/2);
 				new MissleShip(this, getX(), getY());
 				return true;
 			}
 			break;
 		case 3:
-			if (removeMaterial(KamikazeShip.getCost(this))) {
+			if (material >= KamikazeShip.getCost(this)/2 && energy >= KamikazeShip.getCost(this)/2) {
+				removeMaterial(KamikazeShip.getCost(this)/2);
+				removeEnergy(KamikazeShip.getCost(this)/2);
 				new KamikazeShip(this, getX(), getY());
 				return true;
 			}
 			break;
 		case 4:
-			if (removeMaterial(StorageShip.getCost(this))) {
+			if (material >= StorageShip.getCost(this)/2 && energy >= StorageShip.getCost(this)/2) {
+				removeMaterial(StorageShip.getCost(this)/2);
+				removeEnergy(StorageShip.getCost(this)/2);
 				new StorageShip(this, getX(), getY());
 				return true;
 			}
 			break;
 		case 5:
-			if (removeMaterial(ShieldShip.getCost(this))) {
+			if (material >= ShieldShip.getCost(this)/2 && energy >= ShieldShip.getCost(this)/2) {
+				removeMaterial(ShieldShip.getCost(this)/2);
+				removeEnergy(ShieldShip.getCost(this)/2);
 				new ShieldShip(this, getX(), getY());
 				return true;
 			}
@@ -526,7 +538,8 @@ public class Squad extends Entity{
 			}
 		}
 		if (weakest != null) {
-			addMaterial(weakest.getMaxHp()*0.25+weakest.getHp()*0.25);
+			addMaterial(weakest.getMaxHp()*0.125+weakest.getHp()*0.125);
+			addEnergy(weakest.getMaxHp()*0.125+weakest.getHp()*0.125);
 			weakest.die();
 		}
 		return false;

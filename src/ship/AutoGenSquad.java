@@ -114,7 +114,8 @@ public class AutoGenSquad extends MainSquad {
 			}
 		}
 		
-		if (getMaterial() > Math.min(getTotalMaxHp(), getTotalMaxHp()*0.33)) {
+		if (getMaterial()*2 > Math.min(getTotalMaxHp(), getTotalMaxHp()*0.33)
+				&& getEnergy()*2 > Math.min(getTotalMaxHp(), getTotalMaxHp()*0.33)) {
 			int shipType = (int)(Math.random() * 6);
 			build(shipType);//TODO
 		}

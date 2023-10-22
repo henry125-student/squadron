@@ -186,11 +186,13 @@ public class Ship extends Entity implements Moving, Damagable, HasValue{
 	}
 	public void beDestroyed() {
 		double scrap = getMaxHp()/2;
-		while (scrap >= 100) {
-			scrap -= 100;
+		while (scrap >= 200) {
+			scrap -= 200;
 			new Resource(getWorld(), getX(), getY(), 1, 0, 0);
+			new Resource(getWorld(), getX(), getY(), 0, 1, 0);
 		}
-		squad.addMaterial(scrap);
+		squad.addMaterial(scrap/2);
+		squad.addEnergy(scrap/2);
 		
 		die();
 	}
